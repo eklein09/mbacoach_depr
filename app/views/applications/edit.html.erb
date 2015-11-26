@@ -1,0 +1,27 @@
+<h1>Editing Application #<%= @application.id %></h1>
+
+<%= form_tag(application_url(@application), method: 'patch') do %>
+  <div>
+    <%= label_tag :school_id %><br />
+    <%= number_field_tag :school_id, @application.school_id %>
+  </div>
+
+  <div>
+    <%= label_tag :applicant_id %><br />
+    <%= number_field_tag :applicant_id, @application.applicant_id %>
+  </div>
+
+  <div>
+    <%= label_tag :outcome %><br />
+    <%= check_box_tag :outcome, 1, @application.outcome? %>
+  </div>
+
+  <div>
+    <%= label_tag :submission_year %><br />
+    <%= number_field_tag :submission_year, @application.submission_year %>
+  </div>
+
+  <div>
+    <%= submit_tag "Update Application" %>
+  </div>
+<% end %>

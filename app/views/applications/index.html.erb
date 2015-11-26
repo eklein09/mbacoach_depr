@@ -1,0 +1,32 @@
+<h1>Applications</h1>
+
+<p><%= link_to 'Add a New Application', new_application_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>Applicant</th>
+      <th>Outcome</th>
+      <th>Submission year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @applications.each do |application| %>
+    <tr>
+      <td><%= application.school_id %></td>
+      <td><%= application.applicant_id %></td>
+      <td><%= application.outcome %></td>
+      <td><%= application.submission_year %></td>
+      <td><%= link_to 'Show', application_url(application) %></td>
+      <td><%= link_to 'Edit', edit_application_url(application) %></td>
+      <td><%= link_to 'Destroy', application_url(application), method: 'delete', data: { confirm: "Do you really want to delete this application?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

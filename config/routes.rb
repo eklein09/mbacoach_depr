@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Application resource:
+  # CREATE
+  get '/applications/new', controller: 'applications', action: 'new', as: 'new_application'
+  post '/applications', controller: 'applications', action: 'create', as: 'applications'
+
+  # READ
+  get '/applications', controller: 'applications', action: 'index'
+  get '/applications/:id', controller: 'applications', action: 'show', as: 'application'
+
+  # UPDATE
+  get '/applications/:id/edit', controller: 'applications', action: 'edit', as: 'edit_application'
+  patch '/applications/:id', controller: 'applications', action: 'update'
+
+  # DELETE
+  delete '/applications/:id', controller: 'applications', action: 'destroy'
+  #------------------------------
+
   # Routes for the School resource:
   # CREATE
   get '/schools/new', controller: 'schools', action: 'new', as: 'new_school'
