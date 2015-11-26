@@ -1,0 +1,26 @@
+<h1>Schools</h1>
+
+<p><%= link_to 'Add a New School', new_school_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @schools.each do |school| %>
+    <tr>
+      <td><%= school.name %></td>
+      <td><%= link_to 'Show', school_url(school) %></td>
+      <td><%= link_to 'Edit', edit_school_url(school) %></td>
+      <td><%= link_to 'Destroy', school_url(school), method: 'delete', data: { confirm: "Do you really want to delete this school?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
