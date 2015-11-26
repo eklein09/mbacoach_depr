@@ -1,21 +1,4 @@
 Rails.application.routes.draw do
-  # Routes for the School resource:
-  # CREATE
-  get '/schools/new', controller: 'schools', action: 'new', as: 'new_school'
-  post '/schools', controller: 'schools', action: 'create', as: 'schools'
-
-  # READ
-  get '/schools', controller: 'schools', action: 'index'
-  get '/schools/:id', controller: 'schools', action: 'show', as: 'school'
-
-  # UPDATE
-  get '/schools/:id/edit', controller: 'schools', action: 'edit', as: 'edit_school'
-  patch '/schools/:id', controller: 'schools', action: 'update'
-
-  # DELETE
-  delete '/schools/:id', controller: 'schools', action: 'destroy'
-  #------------------------------
-
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
