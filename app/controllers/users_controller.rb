@@ -12,4 +12,17 @@ class UsersController < ApplicationController
     @user = User.find_by( params[ :id] )
   end
 
+  def update
+    @user = User.find(params[:id])
+
+
+    @user.timeinservice = params[:timeinservice]
+
+    if @user.save
+      redirect_to "/users", :notice => "My stats were updated successfully."
+    else
+      render 'edit'
+    end
+  end
+
 end
