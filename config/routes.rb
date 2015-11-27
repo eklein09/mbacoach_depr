@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   # Routes for the users resource
   get "/users/", :controller => "users", action: "index"
 
+  get "users/:id/show", :controller => "users", action: "show"
+
   get "/users/new", controller: "users", action: "new"
 
   get "/users/:id/edit", controller: "users", action: "edit"

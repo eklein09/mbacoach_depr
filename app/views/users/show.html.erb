@@ -1,0 +1,26 @@
+<div class="page-header">
+
+  <h3>My Stats</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+
+      <dt>Email</dt>
+      <dd><%= @user.email %></dd>
+
+      <dt>Time in Service</dt>
+      <dd><%= @user.timeinservice %> years</dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+
+      <a href="/users/<%= @user.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+
+    </div>
+  </div>
+</div>
