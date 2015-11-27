@@ -1,0 +1,48 @@
+<div class="page-header">
+  <h1>
+    Applications
+
+    <a href="/applications/new" class="btn btn-lg btn-success">New Application</a>
+
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+
+        <th>School</th>
+
+        <th>Applicant</th>
+
+        <th>Outcome</th>
+
+        <th>Submission year</th>
+
+        <th>Actions</th>
+      </tr>
+
+      <% @applications.each do |application| %>
+      <tr>
+
+        <td><%= application.school_id %></td>
+
+        <td><%= application.applicant_id %></td>
+
+        <td><%= application.outcome %></td>
+
+        <td><%= application.submission_year %></td>
+
+        <td>
+
+          <a href="/applications/<%= application.id %>" class="btn btn-primary">Show</a>
+          <a href="/applications/<%= application.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_application/<%= application.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

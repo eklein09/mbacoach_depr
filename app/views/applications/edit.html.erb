@@ -1,0 +1,88 @@
+<!-- Validation failure messages -->
+<% if @application.errors.any? %>
+  <% @application.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Application #<%= @application.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+    <form action="/update_application/<%= @application.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+
+
+      <!-- Label and input for school_id -->
+
+      <div class="form-group">
+        <label for="school_id" class="control-label">
+          School
+        </label>
+
+
+        <input type="text" id="school_id" name="school_id" placeholder="School" class="form-control" value="<%= @application.school_id %>">
+
+      </div>
+
+
+
+      <!-- Label and input for applicant_id -->
+
+      <div class="form-group">
+        <label for="applicant_id" class="control-label">
+          Applicant
+        </label>
+
+
+        <input type="text" id="applicant_id" name="applicant_id" placeholder="Applicant" class="form-control" value="<%= @application.applicant_id %>">
+
+      </div>
+
+
+
+      <!-- Label and input for outcome -->
+
+      <div class="checkbox">
+        <label for="outcome">
+          <input type="checkbox" id="outcome" name="outcome" value="1" <%= "checked" if @application.outcome %>>
+          Outcome
+        </label>
+      </div>
+
+
+
+      <!-- Label and input for submission_year -->
+
+      <div class="form-group">
+        <label for="submission_year" class="control-label">
+          Submission year
+        </label>
+
+
+        <input type="text" id="submission_year" name="submission_year" placeholder="Submission year" class="form-control" value="<%= @application.submission_year %>">
+
+      </div>
+
+
+
+      <button class="btn btn-warning">
+        Update Application
+      </button>
+      or
+
+      <a href="/applications/<%= @application.id %>">Cancel</a>
+
+
+    </form>
+
+  </div>
+</div>

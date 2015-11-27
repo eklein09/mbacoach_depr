@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h3>Application #<%= @application.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+
+      <dt>School</dt>
+      <dd><%= @application.school_id %></dd>
+
+
+      <dt>Applicant</dt>
+      <dd><%= @application.applicant_id %></dd>
+
+
+      <dt>Outcome</dt>
+      <dd><%= @application.outcome %></dd>
+
+
+      <dt>Submission year</dt>
+      <dd><%= @application.submission_year %></dd>
+
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+
+      <a href="/applications" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/applications/<%= @application.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_application/<%= @application.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+
+    </div>
+  </div>
+</div>
