@@ -4,4 +4,8 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+    redirect_to "/users/sign_up"
+  end
+
 end

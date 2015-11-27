@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   # Routes for the users resource
   get "/users/", :controller => "users", action: "index"
 
+  get "/users/new", controller: "users", action: "new"
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
