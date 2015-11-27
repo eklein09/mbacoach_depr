@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
 
     @user.timeinservice = params[:timeinservice]
+    @user.major = params[ :major ]
 
     if @user.save
       redirect_to "/users", :notice => "My stats were updated successfully."
