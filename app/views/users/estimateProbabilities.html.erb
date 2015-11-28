@@ -1,10 +1,12 @@
+<% a = `Rscript predict.r FALSE 730 3.94 Military No No Bachelors 2009 2014 3 15 Engineering No 4 1 booth 5` %>
+<% b = /(?<=\[1\]\s)(\d\.\d+)/.match(a) %>
+
 <dl class="dl-horizontal">
 
-      <%= `Rscript predict.r FALSE 730 3.94 Military No No Bachelors 2009 2014 3 15 Engineering No 4 1 booth 5` %>
 
 
-      <dt>HBS</dt>
-      <dd><%= @user.email %></dd>
+      <dt>Booth</dt>
+      <dd><%= b.to_s %></dd>
 
 <!--       <dt>Stanford</dt>
       <dd> <%= @user.gmat %></dd> -->
