@@ -79,7 +79,15 @@
         </label>
 
 
-        <input type="text" id="major" name="major" placeholder="Undergraduate Major" class="form-control" value="<%= @user.major %>">
+        <% if @user.major.nil? then %>
+        <p>
+        <%= select_tag(:major, options_for_select([['Business','Business'],['Economics','Economics'],['Engineering','Engineering'],['Liberal Arts/Sciences','Liberal Arts/Sciences'],['Other','Other'],['Physical Sciences','Physical Sciences']])) %>
+       </p>
+       <% else %>
+          <p>
+        <%= select_tag(:major, options_for_select([['Business','Business'],['Economics','Economics'],['Engineering','Engineering'],['Liberal Arts/Sciences','Liberal Arts/Sciences'],['Other','Other'],['Physical Sciences','Physical Sciences']],@user.major)) %>
+       </p>
+       <% end %>
 
       </div>
 
