@@ -114,10 +114,15 @@
           Did you use professional help (i.e. paid consulting service)?
         </label>
 
+        <% if @user.prohelp.nil? then %>
         <p>
         <%= select_tag(:prohelp, options_for_select([['Yes, I did',true],['No, I did not',false]])) %>
        </p>
-
+       <% else %>
+              <p>
+        <%= select_tag(:prohelp, options_for_select([['Yes, I did',true],['No, I did not',false]], @user.prohelp)) %>
+       </p>
+       <% end %>
      </div>
 
      <button class="btn btn-warning">

@@ -2,14 +2,14 @@
 
 
 <% a = `Rscript predict.r #{@user.gmat} #{@user.gpa} #{@user.industry} #{displayHelp[@user.prohelp.to_s]} No Bachelors 2009 2014 3 15 #{@user.major} No 4 1 hbs 5` %>
-<% b = /(?<=\[1\]\s)(\d\.\d+)/.match(a) %>
+<% b = /(?<=\[1\]\s)(\d\.\d+)/.match(a).to_s %>
 
 <dl class="dl-horizontal">
 
 
 
       <dt>Booth</dt>
-      <dd><%= b.to_s %></dd>
+      <dd><%= b.to_f %></dd>
 
 <!--       <dt>Stanford</dt>
       <dd> <%= @user.gmat %></dd> -->
