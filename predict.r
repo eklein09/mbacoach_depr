@@ -20,15 +20,16 @@ suppressMessages(h2o <- h2o.init(nthreads = -1))
 h2o_gbm <- h2o.loadModel(path = "C:\\GBM_model_R_1447339520801_5")
 
 
-args <- commandArgs(trailingOnly = TRUE)
-# args <- c("FALSE","730","3.94","Military","No","No","Bachelors",
-#     "2009","2014","3","15","Engineering","No","4","1","booth","5")
+#args <- commandArgs(trailingOnly = TRUE)
+ args <- c("730","3.94","Military","No","No","Bachelors",
+     "2009","2014","3","15","Engineering","No","4","1","booth","5")
 newdata <- data.frame(t(as.matrix(args)))
 colnames(newdata) <-  
-  c("decision","gmat","gpa","industry","prohelp",
+  c("gmat","gpa","industry","prohelp",
  "infhelp","degree","gradyear","appyear",
   "collegerank","essayhours","major","sponsored",
  "timeinservice","ID","school","workexp")
+
 newdata[,"gmat"] <- as.integer(newdata[,"gmat"])
 newdata[,"gpa"] <- as.numeric(newdata[,"gpa"])
 newdata[,"gradyear"] <- as.integer(newdata[,"gradyear"])
@@ -41,4 +42,6 @@ newdata[,"workexp"] <- as.integer(newdata[,"workexp"])
 newdata_hex <- as.h2o(newdata)
 
 as.vector(predict(object = h2o_gbm, newdata = newdata_hex)[,3])
+
+#Shutdown
 invisible(h2o.shutdown(prompt  =FALSE))
