@@ -1,4 +1,7 @@
-<% a = `Rscript predict.r #{@user.gmat} 3.94 Military No No Bachelors 2009 2014 3 15 Engineering No 4 1 hbs 5` %>
+<% displayHelp = { "false" => "No", "true" => "Yes" } %>
+
+
+<% a = `Rscript predict.r #{@user.gmat} #{@user.gpa} #{@user.industry} #{displayHelp[@user.prohelp.to_s]} No Bachelors 2009 2014 3 15 #{@user.major} No 4 1 hbs 5` %>
 <% b = /(?<=\[1\]\s)(\d\.\d+)/.match(a) %>
 
 <dl class="dl-horizontal">
