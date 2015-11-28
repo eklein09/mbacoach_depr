@@ -19,9 +19,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-
+    @user.gmat = params[:gmat]
+    @user.gpa = params[:gpa]
+    @user.industry = params[:industry]
+    @user.collegerank = params[:collegerank]
     @user.timeinservice = params[:timeinservice]
     @user.major = params[ :major ]
+    @user.prohelp = params[ :prohelp ]
 
     if @user.save
       redirect_to "/users", :notice => "My stats were updated successfully."
