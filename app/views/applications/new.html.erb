@@ -39,11 +39,11 @@
 
       <div class="form-group">
         <label for="applicant_id" class="control-label">
-          Applicant
+          <!-- Applicant -->
         </label>
 
 
-        <input type="text" id="applicant_id" name="applicant_id" placeholder="Applicant" class="form-control" value="<%= @application.applicant_id %>">
+        <input type="hidden" id="applicant_id" name="applicant_id" placeholder="Applicant" class="form-control" value="<%= @application.applicant_id = current_user.id %>">
 
       </div>
 
