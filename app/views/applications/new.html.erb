@@ -29,8 +29,7 @@
         </label>
 
 
-        <input type="text" id="school_id" name="school_id" placeholder="School" class="form-control" value="<%= @application.school_id %>">
-
+        <%= select_tag(:school_id, options_from_collection_for_select( School.all, :id, :name, @application.school_id  ), :class => "form-control" ) %>
       </div>
 
 
@@ -49,14 +48,16 @@
 
 
 
-      <!-- Label and input for outcome -->
+    <div class="form-group">
+      <label for="name" class="control-label">
+        Outcome
+      </label>
+      <p>
+        <%= select_tag( :outcome, options_for_select([['Accepted',true],['Rejected',false]]) ) %>
+      </p>
 
-      <div class="checkbox">
-        <label for="outcome">
-          <input type="checkbox" id="outcome" name="outcome" value="1" <%= "checked" if @application.outcome %>>
-          Outcome
-        </label>
-      </div>
+    </div>
+
 
 
 
