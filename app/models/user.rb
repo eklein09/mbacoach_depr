@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :applications, :dependent => :destroy
-  has_many :schools, through: :application
+  has_many :applications, :dependent => :destroy, foreign_key: :applicant_id
+  #has_many :schools, through: :applications
 
 end

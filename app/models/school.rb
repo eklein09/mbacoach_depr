@@ -3,5 +3,5 @@ class School < ActiveRecord::Base
 
   has_many :applications, :dependent => :destroy
 
-  has_many :users, through: :applications
+  #has_many :users, through: :applications
 end

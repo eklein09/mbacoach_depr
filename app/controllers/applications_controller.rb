@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   def index
-    @applications = Application.all
+    @applications = current_user.applications
     #@applications = Application.where( :user_id => current_user.id )
   end
 
