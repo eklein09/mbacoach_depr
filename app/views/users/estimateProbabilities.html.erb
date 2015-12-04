@@ -1,15 +1,18 @@
 <% displayHelp = { "false" => "No", "true" => "Yes" } %>
 
+<% a = `Rscript predict.r #{@user.gmat} #{@user.gpa} "#{@user.industry}" #{displayHelp[@user.prohelp.to_s]} No Bachelors 2009 2014 3 15 "#{@user.major}" No 4 1 hbs 5` %>
+<!-- b = /(?<=\[1\]\s)(\d\.\d+)/.match(a).to_s -->
 
-<% a = `Rscript predict.r #{@user.gmat} #{@user.gpa} #{@user.industry} #{displayHelp[@user.prohelp.to_s]} No Bachelors 2009 2014 3 15 #{@user.major} No 4 1 hbs 5` %>
-<% b = /(?<=\[1\]\s)(\d\.\d+)/.match(a).to_s %>
+<p>
+<%= a %>
+</p>
 
 <dl class="dl-horizontal">
 
 
 
       <dt>Booth</dt>
-      <dd><%= b.to_f %></dd>
+      <dd></dd>
 
 <!--       <dt>Stanford</dt>
       <dd> <%= @user.gmat %></dd> -->
