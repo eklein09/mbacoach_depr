@@ -53,6 +53,10 @@ class UsersController < ApplicationController
     if current_user!=@user
       redirect_to '/users', notice: 'Only your own probabilities are visible.'
     else
+      a = `Rscript predict.r #{@user.gmat} #{@user.gpa} "#{@user.industry}" #{Application::DISPLAY_HELP[@user.prohelp.to_s]} No Bachelors 2009 2014 3 15 "#{@user.major}" No 4 1 hbs 5`
+      b = /(?<=\[1\]\s)((.|\n)+)/.match(a)
+      c = b.to_s.gsub(/\[\d+\]/, "")
+      @d = c.split(" ")
       render 'estimateProbabilities'
     end
   end
