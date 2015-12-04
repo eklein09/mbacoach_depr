@@ -41,6 +41,11 @@ class UsersController < ApplicationController
 
   def estimateProbabilities
     @user = User.find( params[:id] )
-  end
+    if current_user!=@user
+      redirect_to '/users', notice: 'Only your own probabilities are visible.'
+    else
+      render 'estimateProbabilities'
+    end
+    end
 
-end
+  end
