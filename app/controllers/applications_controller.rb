@@ -40,27 +40,36 @@ class ApplicationsController < ApplicationController
 
   def edit
     @application = Application.find(params[:id])
+    if current_user!=@application.user then
+      redirect_to '/applications', :notice => "Only your own applications are visible."
+    else
+      render 'edit'
+    end
   end
 
   def update
     @application = Application.find(params[:id])
-
-
-    @application.school_id = params[:school_id]
-
-    @application.applicant_id = params[:applicant_id]
-
-    @application.outcome = params[:outcome]
-
-    @application.submission_year = params[:submission_year]
-
-
-
-    if @application.save
-      redirect_to "/applications", :notice => "Application updated successfully."
+    if current_user!=@application.user then
+      redirect_to '/applications', :notice => "Only your own applications are visible."
     else
-      render 'edit'
+      @application.school_id = params[:school_id]
+
+      @application.applicant_id = params[:applicant_id]
+
+      @application.outcome = params[:outcome]
+
+      @application.submission_year = params[:submission_year]
+
+
+
+      if @application.save
+        redirect_to "/applications", :notice => "Application updated successfully."
+      else
+        render 'edit'
+      end
     end
+
+
 
   end
 
