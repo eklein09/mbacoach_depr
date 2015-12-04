@@ -14,8 +14,6 @@
 
         <th>School</th>
 
-        <th>Applicant</th>
-
         <th>Accepted?</th>
 
         <th>Submission year</th>
@@ -28,9 +26,7 @@
 
         <td><%= application.school.name %></td>
 
-        <td><%= application.user.email %></td>
-
-        <td><%= application.outcome %></td>
+        <td><%= Application::DISPLAY_HELP[application.outcome.to_s] %></td>
 
         <td><%= application.submission_year %></td>
 
