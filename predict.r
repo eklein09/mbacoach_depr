@@ -35,8 +35,6 @@ colnames(newdata) <- c("gmat","gpa","industry","prohelp",
   "collegerank","essayhours","major","sponsored",
  "timeinservice","ID","school","workexp")
 
-"reassigned column names"
-
 newdata[, gmat := as.integer(gmat) ]
 newdata[, gpa := as.numeric(gpa) ]
 newdata[, gradyear := as.integer(gradyear) ]
@@ -47,15 +45,11 @@ newdata[, timeinservice := as.integer(timeinservice) ]
 newdata[, workexp := as.integer(workexp) ]
 newdata[, industry := as.factor(industry)]
 
-"converted all newdata datatypes"
-
 allschools <- newdata[rep(seq_len(nrow(newdata)), each=15),]
 allschools[, school := c("hbs","stanford","wharton","booth","sloan",
                                        "kellogg","haas","tuck",
                                        "darden", "fuqua","columbia",
-                                       "anderson","stern","yalesom","ross") ] 
-
-"redefined school column"
+                                       "anderson","stern","yalesom","ross") ]
 
 allschools[, school := as.factor(school)]
 allschools[, major := as.factor(major)]
@@ -66,8 +60,6 @@ allschools[, sponsored := as.factor(sponsored) ]
 
 
 newdata_hex <- as.h2o(allschools)
-
-"Converted newdata to h2o"
 
 as.vector(predict(object = h2o_glm, newdata = newdata_hex)[,3])
 
