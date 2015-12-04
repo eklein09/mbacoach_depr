@@ -6,6 +6,11 @@ class ApplicationsController < ApplicationController
 
   def show
     @application = Application.find(params[:id])
+    if current_user==@application.user then
+      render 'show'
+    else
+      redirect_to '/applications', :notice => "Only your own applications are visible."
+    end
   end
 
   def new
