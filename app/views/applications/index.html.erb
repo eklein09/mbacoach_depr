@@ -26,9 +26,9 @@
       <% @applications.each do |application| %>
       <tr>
 
-        <td><%= application.school_id %></td>
+        <td><%= application.school.name %></td>
 
-        <td><%= application.applicant_id %></td>
+        <td><%= application.user.email %></td>
 
         <td><%= application.outcome %></td>
 
