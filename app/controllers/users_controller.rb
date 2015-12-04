@@ -6,6 +6,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find( params[:id] )
+    if current_user!=@user then
+      redirect_to '/users', :notice => "Only your own stats are visible."
+    else
+      render 'show'
+    end
   end
 
   def new
