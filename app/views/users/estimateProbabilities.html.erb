@@ -2,9 +2,6 @@
 <% b = /(?<=\[1\]\s)((.|\n)+)/.match(a) %>
   <% c = b.to_s.gsub(/\[\d+\]/, "")  %>
   <% d = c.split(" ")  %>
-<p>
-<%= d %>
-</p>
 
 <% schoolList = [ "hbs","stanford","wharton","booth","sloan",
                                        "kellogg","haas","tuck",
@@ -16,8 +13,12 @@
 
 
 <% schoolList.each do |schoolName| %>
-  <dt><%= schoolName %></dt>
-  <dd> </dd>
+  <% if schoolName[0]=="hbs" then %>
+    <dt><%= schoolName[0].upcase %></dt>
+  <% else %>
+  <dt><%= schoolName[0].titlecase %></dt>
+  <% end %>
+  <dd><%= (schoolName[1].to_f*100).round %>%</dd>
 <% end %>
 
 <!--       <dt>Stanford</dt>
