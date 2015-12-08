@@ -1,0 +1,91 @@
+<!-- Label and input for name -->
+
+      <div class="form-group">
+<!--         <label for="name" class="control-label">
+          Name
+        </label> -->
+
+
+        <input type="hidden" id="email" name="email" placeholder="Name" class="form-control" value="<%= @user.email %>">
+
+      </div>
+
+      <!-- Label and input for gmat -->
+
+      <div class="form-group">
+        <label for="gmat" class="control-label">
+          GMAT
+        </label>
+
+
+        <input type="number" id="gmat" name="gmat" placeholder="GMAT" class="form-control" value="<%= @user.gmat %>">
+
+      </div>
+
+      <!-- Label and input for GPA -->
+
+      <div class="form-group">
+       <%= render 'gpa' %>
+        <!-- <input type="number" id="gpa" name="gpa" placeholder="GPA" class="form-control" value="<%= @user.gpa %>">
+      -->
+    </div>
+
+    <!-- Label and input for college rank -->
+
+    <div class="form-group">
+      <label for="collegerank" class="control-label">
+        Rank of Undergrad Institution (US News or equivalent)
+      </label>
+
+
+      <input type="number" id="collegerank" name="collegerank" placeholder="Rank of College" class="form-control" value="<%= @user.collegerank %>">
+
+    </div>
+
+
+
+    <!-- Label and input for major -->
+
+    <div class="form-group">
+
+      <%= render 'major' %>
+
+    </div>
+
+    <!-- Label and input for pre-MBA industry -->
+
+    <div class="form-group">
+
+      <%= render 'industry' %>
+
+    </div>
+
+    <!-- Label and input for timeinservice -->
+
+    <div class="form-group">
+      <label for="name" class="control-label">
+        Time in Service (years)
+      </label>
+
+
+      <input type="number" id="timeinservice" name="timeinservice" placeholder="Time in Service" class="form-control" value="<%= @user.timeinservice %>">
+
+    </div>
+
+    <!-- Label and input for prohelp -->
+
+    <div class="form-group">
+      <label for="prohelp" class="control-label">
+        Did you use professional help (i.e. paid consulting service)?
+      </label>
+
+      <% if @user.prohelp.nil? then %>
+      <p>
+        <%= select_tag(:prohelp, options_for_select([['Yes, I did',true],['No, I did not',false]])) %>
+      </p>
+      <% else %>
+      <p>
+        <%= select_tag(:prohelp, options_for_select([['Yes, I did',true],['No, I did not',false]], @user.prohelp)) %>
+      </p>
+      <% end %>
+    </div>
