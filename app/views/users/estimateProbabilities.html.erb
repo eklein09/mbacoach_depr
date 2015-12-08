@@ -1,26 +1,47 @@
 <% schoolList = [ "hbs","stanford","wharton","booth","sloan",
-                                       "kellogg","haas","tuck",
-                                       "darden", "fuqua","columbia",
-                                       "anderson","stern","yalesom","ross" ] %>
-<% schoolList = schoolList.zip(@d) %>
+ "kellogg","haas","tuck",
+ "darden", "fuqua","columbia",
+ "anderson","stern","yalesom","ross" ] %>
+ <% schoolList = schoolList.zip(@d) %>
 
-<dl class="dl-horizontal">
+ <dl class="dl-horizontal">
 
 
+  <h2>Estimated Probabilities</h2>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
 
-<% schoolList.each do |schoolName| %>
-  <% if schoolName[0]=="hbs" then %>
-    <dt><%= schoolName[0].upcase %></dt>
-  <% else %>
-  <dt><%= schoolName[0].titlecase %></dt>
-  <% end %>
-  <dd><%= (schoolName[1].to_f*100).round %>%</dd>
-<% end %>
+          <th>School</th>
+          <th>Probability</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% schoolList.each do |schoolName| %>
+        <tr>
+         <% if schoolName[0]=="hbs" then %>
+         <td><%= schoolName[0].upcase %></td>
+         <% elsif schoolName[0]=="Yalesom" then %>
+         <td>Yale SOM</td>
+         <% else %>
+         <td><%= schoolName[0].titlecase %></td>
+         <% end %>
+
+         <td><%= (schoolName[1].to_f*100).round %>%</td>
+
+       </tr>
+       <% end %>
+     </tbody>
+   </table>
+ </div>
+
 
 <!--       <dt>Stanford</dt>
-      <dd> <%= @user.gmat %></dd> -->
+  <dd> <%= @user.gmat %></dd> -->
 
 <!--       <dt>Wharton</dt>
-      <dd> <%= @user.gpa %></dd> -->
+  <dd> <%= @user.gpa %></dd> -->
 
 </dl>
