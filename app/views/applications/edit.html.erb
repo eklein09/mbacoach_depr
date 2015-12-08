@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @application.errors.any? %>
-  <% @application.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @application.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
@@ -29,7 +29,7 @@
         </label>
 
 
-        <input type="text" id="school_id" name="school_id" placeholder="School" class="form-control" value="<%= @application.school_id %>">
+        <%= select_tag(:school_id, options_from_collection_for_select( School.all, :id, :name, @application.school_id  ), :class => "form-control" ) %>
 
       </div>
 
@@ -38,12 +38,8 @@
       <!-- Label and input for applicant_id -->
 
       <div class="form-group">
-        <label for="applicant_id" class="control-label">
-          Applicant
-        </label>
 
-
-        <input type="text" id="applicant_id" name="applicant_id" placeholder="Applicant" class="form-control" value="<%= @application.applicant_id %>">
+        <input type="hidden" id="applicant_id" name="applicant_id" placeholder="Applicant" class="form-control" value="<%= @application.applicant_id = current_user.id %>">
 
       </div>
 
@@ -51,11 +47,13 @@
 
       <!-- Label and input for outcome -->
 
-      <div class="checkbox">
+      <div class="form-group">
         <label for="outcome">
-          <input type="checkbox" id="outcome" name="outcome" value="1" <%= "checked" if @application.outcome %>>
-          Outcome
+          Admitted
         </label>
+        <p>
+          <%= select_tag( :outcome, options_for_select([['Accepted',true],['Rejected',false]]) ) %>
+        </p>
       </div>
 
 
