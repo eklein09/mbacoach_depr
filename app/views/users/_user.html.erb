@@ -80,27 +80,45 @@
 
     </div>
 
-    <div class="collapse" id="collapseExample">
-      <div class="well">
-        <!-- Label and input for timeinservice -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-4">
+          <!-- Insert military block here -->
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            I served in the military
+          </button>
+          <div class="collapse" id="collapseExample">
+            <div class="well">
+              <!-- Label and input for timeinservice -->
 
-        <div class="form-group">
-          <label for="name" class="control-label">
-            Time in Service (years)
-          </label>
+              <div class="form-group">
+                <label for="name" class="control-label">
+                  Time in Service (years)
+                </label>
 
 
-          <input type="number" id="timeinservice" name="timeinservice" placeholder="Time in Service" class="form-control" value="<%= @user.timeinservice %>">
+                <input type="number" id="timeinservice" name="timeinservice" placeholder="Time in Service" class="form-control" value="<%= @user.timeinservice %>">
 
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+        <div class="col-md-4">
 
-    <div class="collapse" id="collapseExample2">
-      <div class="well">
-        <div class="form-group">
+          <!-- Insert non-military block here -->
+          <!-- Label and input for pre-MBA industry -->
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+            I did not serve in the military
+          </button>
+          <div class="collapse" id="collapseExample2">
+            <div class="well">
+              <div class="form-group">
 
-          <%= render 'users/industry' %>
+                <%= render 'users/industry' %>
+
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
