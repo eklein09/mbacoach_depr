@@ -1,5 +1,5 @@
 class School < ActiveRecord::Base
-  validates :name, uniqueness: true
+  validates :name, existence:true, uniqueness: true
 
   has_many :applications, :dependent => :destroy
 

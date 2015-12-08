@@ -1,5 +1,6 @@
   class Application < ActiveRecord::Base
-
+    validates :applicant_id, existence: true
+    validates :school_id, existence: true
     DISPLAY_HELP = { "false" => "No", "true" => "Yes" }
 
 
