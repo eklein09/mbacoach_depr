@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Mbacoach</title>
+  <title>Mbacoach&reg</title>
 
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css">
@@ -36,7 +36,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">Mbacoach</a>
+        <a href="/" class="navbar-brand">Mbacoach&reg</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,15 +44,15 @@
         <ul class="nav navbar-nav">
 
           <% if user_signed_in? then %>
-          <li><a href="/users">Users</a></li>
+          <li><a href="/users"><i class="fa fa-users"></i> Users</a></li>
 
-          <li><a href="/users/<%= current_user.id %>/show">My Stats</a></li>
+          <li><a href="/users/<%= current_user.id %>/show"><i class="fa fa-list-ol"></i> My Stats</a></li>
 
-           <li><a href="/users/<%= current_user.id %>/probabilities">Estimated Probabilities</a></li>
+           <li><a href="/users/<%= current_user.id %>/probabilities"><i class="fa fa-tachometer"></i> Estimated Probabilities</a></li>
 
-          <li><a href="/applications">Completed Applications</a></li>
+          <li><a href="/applications"><i class="fa fa-check-square-o"></i> Completed Applications</a></li>
 
-          <li><a href="/schools">Schools</a></li>
+          <li><a href="/schools"><i class="fa fa-graduation-cap"></i> Schools</a></li>
 
           <!-- <li><a href="/rails/info">Sitemap</a></li> -->
           <% else %>
