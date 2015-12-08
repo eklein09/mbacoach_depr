@@ -1,6 +1,6 @@
 <!-- Label and input for name -->
 
-      <div class="form-group">
+<div class="form-group">
 <!--         <label for="name" class="control-label">
           Name
         </label> -->
@@ -52,40 +52,65 @@
 
     </div>
 
-    <!-- Label and input for pre-MBA industry -->
+    <div>
 
-    <div class="form-group">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#nonmilitary" aria-controls="nonmilitary" role="tab" data-toggle="tab">Non-military</a></li>
+        <li role="presentation"><a href="#military" aria-controls="military" role="tab" data-toggle="tab">Military</a></li>
+      </ul>
 
-      <%= render 'users/industry' %>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="nonmilitary">
+          <!-- Label and input for pre-MBA industry -->
 
-    </div>
+          <div class="form-group">
 
-    <!-- Label and input for timeinservice -->
+            <input type="hidden" id="timeinservice" name="timeinservice" placeholder="Time in Service" class="form-control" value="<%= 0 %>">
 
-    <div class="form-group">
-      <label for="name" class="control-label">
-        Time in Service (years)
-      </label>
+            <%= render 'users/industry' %>
+
+          </div></div>
+          <div role="tabpanel" class="tab-pane" id="military">
 
 
-      <input type="number" id="timeinservice" name="timeinservice" placeholder="Time in Service" class="form-control" value="<%= @user.timeinservice %>">
+          <input type="hidden" id="industry" name="industry" placeholder="Time in Service" class="form-control" value="<%= "Military"  %>">
+            <!-- Label and input for timeinservice -->
 
-    </div>
+            <div class="form-group">
+              <label for="name" class="control-label">
+                Time in Service (years)
+              </label>
 
-    <!-- Label and input for prohelp -->
 
-    <div class="form-group">
-      <label for="prohelp" class="control-label">
-        Did you use professional help (i.e. paid consulting service)?
-      </label>
 
-      <% if @user.prohelp.nil? then %>
-      <p>
-        <%= select_tag(:prohelp, options_for_select([['Yes, I did',true],['No, I did not',false]])) %>
-      </p>
-      <% else %>
-      <p>
-        <%= select_tag(:prohelp, options_for_select([['Yes, I did',true],['No, I did not',false]], @user.prohelp)) %>
-      </p>
-      <% end %>
-    </div>
+              <input type="number" id="timeinservice" name="timeinservice" placeholder="Time in Service" class="form-control" value="<%= @user.timeinservice %>">
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+      <!-- Label and input for prohelp -->
+
+      <div class="form-group">
+        <label for="prohelp" class="control-label">
+          Did you use professional help (i.e. paid consulting service)?
+        </label>
+
+        <% if @user.prohelp.nil? then %>
+        <p>
+          <%= select_tag(:prohelp, options_for_select([['Yes, I did',true],['No, I did not',false]])) %>
+        </p>
+        <% else %>
+        <p>
+          <%= select_tag(:prohelp, options_for_select([['Yes, I did',true],['No, I did not',false]], @user.prohelp)) %>
+        </p>
+        <% end %>
+      </div>
