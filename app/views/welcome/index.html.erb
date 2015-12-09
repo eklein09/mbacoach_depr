@@ -14,7 +14,10 @@
         <div class="col-md-4">
           <h2>Probabilities</h2>
           <p>See your chances of admission at the top schools.</p>
+          <% if user_signed_in? then %>
           <p><a class="btn btn-secondary" href="/users/<%= current_user.id %>/probabilities" role="button">See probabilities &raquo;</a></p>
+
+          <% end %>
         </div>
         <div class="col-md-4">
           <h2>Record Results</h2>

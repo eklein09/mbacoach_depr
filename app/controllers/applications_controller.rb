@@ -1,7 +1,11 @@
 class ApplicationsController < ApplicationController
   def index
-    @applications = current_user.applications
-    #@applications = Application.where( :user_id => current_user.id )
+    if current_user.admin? then
+      @applications = Application.all
+    else
+
+      @applications = current_user.applications
+    end
   end
 
   def show
@@ -75,11 +79,15 @@ class ApplicationsController < ApplicationController
 
   def destroy
     @application = Application.find(params[:id])
+    if @application.user==current_user || current_user.admin? then
 
-    @application.destroy
+      @application.destroy
 
 
-    redirect_to "/applications", :notice => "Application deleted."
+      redirect_to "/applications", :notice => "Application deleted."
+    else
+      redirect_to "/applications", :notice => "This action is not permitted."
+    end
 
   end
 end
