@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    if current_user.admin? then
+      @users = User.all
+    else
+      redirect_to '/', :notice=> "This action is not permitted."
+    end
   end
 
   def show
