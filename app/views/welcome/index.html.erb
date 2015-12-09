@@ -2,7 +2,9 @@
       <div class="container">
         <h1 class="display-3">Welcome to Mbacoach!</h1>
         <p>Mbacoach estimates your chances of getting into top business schools. To get started, tell us about yourself.</p>
+        <% if user_signed_in? then %>
         <p><a class="btn btn-primary btn-lg" href="/users/<%= current_user.id %>/edit" role="button">Get started &raquo;</a></p>
+        <% end %>
       </div>
     </div>
 
