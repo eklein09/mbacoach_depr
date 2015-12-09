@@ -25,9 +25,10 @@
         <td>
 
           <a href="/schools/<%= school.id %>" class="btn btn-primary">Show</a>
+          <% if current_user.admin? then %>
           <a href="/schools/<%= school.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_school/<%= school.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-
+          <% end %>
         </td>
       </tr>
       <% end %>

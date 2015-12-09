@@ -9,6 +9,8 @@
       <dt>Name</dt>
       <dd><%= @school.name %></dd>
 
+      <dt>Applicants on Mbacoach</dt>
+      <dd> <%= @school.applications.count %></dd>
 
     </dl>
 
@@ -17,13 +19,14 @@
       <a href="/schools" class="btn btn-primary">
         Back
       </a>
+      <% if current_user.admin? then %>
       <a href="/schools/<%= @school.id %>/edit" class="btn btn-warning">
         Edit
       </a>
       <a href="/delete_school/<%= @school.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>
-
+      <% end %>
     </div>
   </div>
 </div>
