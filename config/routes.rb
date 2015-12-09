@@ -48,7 +48,7 @@ Rails.application.routes.draw do
 
   get "/users/:id/probabilities", :controller => "users", action: "estimateProbabilities"
 
-  devise_for :users, controllers: { sessions: "users/sessions" }
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: "users/sessions" }
 
   get "/users/:id", :controller => "users", action: "show"
   # The priority is based upon order of creation: first created -> highest priority.
