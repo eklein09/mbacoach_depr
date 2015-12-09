@@ -21,7 +21,15 @@
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
 </div>
 
- <%= hidden_field_tag 'admin', false %>
+<div class="field">
+<%= hidden_field_tag :admin, false %>
+</div>
+<!-- Label and input for gmat -->
+GMAT
+<div class="field">
+  <%= number_field_tag :gmat,nil %>
+</div>
+
 <div class="actions">
   <%= f.submit "Sign up" %>
 </div>
