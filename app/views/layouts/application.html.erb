@@ -44,8 +44,9 @@
         <ul class="nav navbar-nav">
 
           <% if user_signed_in? then %>
+          <% if current_user.admin? then %>
           <li><a href="/users"><i class="fa fa-users"></i> Users</a></li>
-
+          <% end %>
           <li><a href="/users/<%= current_user.id %>/show"><i class="fa fa-list-ol"></i> My Stats</a></li>
 
            <li><a href="/users/<%= current_user.id %>/probabilities"><i class="fa fa-tachometer"></i> Estimated Probabilities</a></li>
