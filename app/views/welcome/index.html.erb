@@ -1,15 +1,34 @@
-<section class="bg-primary" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Welcome to Mbacoach!</h2>
-                    <hr class="light">
-                    <p class="text-faded">Mbacoach estimates your chances of getting into top business schools.</p>
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Welcome to Mbacoach!</h1>
+        <p>Mbacoach estimates your chances of getting into top business schools. To get started, tell us about yourself.</p>
+        <p><a class="btn btn-primary btn-lg" href="/users/<%= current_user.id %>/edit" role="button">Get started &raquo;</a></p>
+      </div>
+    </div>
 
-                    <% if user_signed_in? then %>
-                    <a href="/users/<%= current_user.id %>/edit" class="btn btn-default btn-xl">Enter your stats</a>
-                    <% end %>
-                </div>
-            </div>
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Probabilities</h2>
+          <p>See your chances of admission at the top schools.</p>
+          <p><a class="btn btn-secondary" href="/users/<%= current_user.id %>/probabilities" role="button">See probabilities &raquo;</a></p>
         </div>
-    </section>
+        <div class="col-md-4">
+          <h2>Record Results</h2>
+          <p>Help us improve MBAcoach by sharing your results!</p>
+          <p><a class="btn btn-secondary" href="/applications" role="button">Enter results &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Schools</h2>
+          <p>View school info</p>
+          <p><a class="btn btn-secondary" href="/schools" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Mbacoach 2015</p>
+      </footer>
+    </div> <!-- /container -->
