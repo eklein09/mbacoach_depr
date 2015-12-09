@@ -47,12 +47,16 @@ class SchoolsController < ApplicationController
   end
 
   def destroy
-    @school = School.find(params[:id])
+    if current_user.admin? then
+      @school = School.find(params[:id])
 
-    @school.destroy
+      @school.destroy
 
 
-    redirect_to "/schools", :notice => "School deleted."
+      redirect_to "/schools", :notice => "School deleted."
+    else
+      redirect_to "/schools", :notice => "This action is not permitted."
+    end
 
   end
 end
