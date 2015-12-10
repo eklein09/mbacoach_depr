@@ -9,10 +9,10 @@ class User < ActiveRecord::Base
   validates :gmat, presence:true, numericality: { greater_than_or_equal_to: 200, less_than_or_equal_to: 800, only_integer: true }
   validates :gpa, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 4 }
   validates :collegerank, presence: true, numericality: { only_integer: true }
-  validates :major, presence: true
-  validates :industry, presence: true
+  # validates :major, presence: true
+  # validates :industry, presence: true
   validates :timeinservice, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 25 }
-  validates :prohelp, presence: true
+  #validates :prohelp, presence: true
 
   has_many :applications, :dependent => :destroy, foreign_key: :applicant_id
 
