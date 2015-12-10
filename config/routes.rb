@@ -36,8 +36,6 @@ Rails.application.routes.draw do
   # Routes for the users resource
   get "/users/", :controller => "users", action: "index"
 
-
-
   get "/users/:id/show", :controller => "users", action: "show"
 
   get "/users/new", controller: "users", action: "new"
@@ -48,9 +46,13 @@ Rails.application.routes.draw do
 
   get "/users/:id/probabilities", :controller => "users", action: "estimateProbabilities"
 
+  get "/users/:id/probabilities", :controller => "users", action: "estimateProbabilities"
+
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: "users/sessions" }
 
   get "/users/:id", :controller => "users", action: "show"
+
+  get "/delete_user/:id", :controller => "users", action: "destroy"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
