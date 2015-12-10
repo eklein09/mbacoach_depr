@@ -43,9 +43,22 @@
 <div class="field">
   <%= f.label :major, 'Undergraduate Major' %><br />
   <%= f.select(:major, options_for_select([['Business','Business'],['Economics','Economics'],['Engineering','Engineering'],['Liberal Arts/Sciences','Liberal Arts/Sciences'],['Other','Other'],['Physical Sciences','Physical Sciences']])) %>
-
 </div>
 
+<div class="field">
+  <%= f.label :major, 'Undergraduate Major' %><br />
+  <%= f.select(:industry, options_for_select([['Commercial/Investment Banking','Commercial/Investment Banking'],['Computing/Telecom','Computing/Telecom'],['Consulting','Consulting'],['Consumer Products','Consumer Products'],['Education/Government/Nonprofit','Education/Government/Nonprofit'],['Energy','Energy'],['Engineering','Engineering'],['Financial Services -- Other','Financial Services -- Other'],['Investment Management','Investment Management'],['Military','Military'],['Nonprofit','Nonprofit'],['Other','Other'],['Real Estate','Real Estate'],['Venture Capital/Private Equity','Venture Capital/Private Equity']])) %>
+</div>
+
+<div class="field">
+  <%= f.label :timeinservice, 'Years of Military Service (enter 0 if none)' %><br />
+  <%= f.number_field :timeinservice, min: 0, max: 25 %>
+</div>
+
+<div class="field">
+  <%= f.label :prohelp, 'Did you use a paid admissions consulting service?' %><br />
+  <%= f.select(:prohelp, options_for_select([['Yes',true], ['No',false]])) %>
+</div>
 
 <div class="actions">
   <%= f.submit "Sign up" %>
