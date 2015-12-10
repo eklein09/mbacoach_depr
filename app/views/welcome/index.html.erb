@@ -4,6 +4,8 @@
         <p>Mbacoach estimates your chances of getting into top business schools. To get started, tell us about yourself.</p>
         <% if user_signed_in? then %>
         <p><a class="btn btn-primary btn-lg" href="/users/<%= current_user.id %>/edit" role="button">Get started &raquo;</a></p>
+        <% else %>
+        <p><a class="btn btn-primary btn-lg" href="/users/sign_up" role="button">Sign up &raquo;</a></p>
         <% end %>
       </div>
     </div>
@@ -16,18 +18,27 @@
           <p>See your chances of admission at the top schools.</p>
           <% if user_signed_in? then %>
           <p><a class="btn btn-secondary" href="/users/<%= current_user.id %>/probabilities" role="button">See probabilities &raquo;</a></p>
-
+          <% else %>
+          <p><a class="btn btn-secondary" href="/users/sign_up" role="button">Sign up &raquo;</a></p>
           <% end %>
         </div>
         <div class="col-md-4">
           <h2>Record Results</h2>
           <p>Help us improve MBAcoach by sharing your results!</p>
+          <% if user_signed_in? then %>
           <p><a class="btn btn-secondary" href="/applications" role="button">Enter results &raquo;</a></p>
-       </div>
+          <% else %>
+          <p><a class="btn btn-secondary" href="/users/sign_up" role="button">Enter results &raquo;</a></p>
+          <% end %>
+        </div>
         <div class="col-md-4">
           <h2>Schools</h2>
-          <p>View school info</p>
+          <p>View statistics for your target school.</p>
+          <% if user_signed_in? then %>
           <p><a class="btn btn-secondary" href="/schools" role="button">View details &raquo;</a></p>
+          <% else %>
+          <p><a class="btn btn-secondary" href="/users/sign_up" role="button">View details &raquo;</a></p>
+          <% end %>
         </div>
       </div>
 
