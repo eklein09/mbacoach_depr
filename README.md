@@ -11,10 +11,10 @@ In order to run the Estimated Probabilities feature, perform the following steps
     
 2. Install necessary packages. Type `R` to start up the R console. Once the R console is open, install the following packages using the commands
 
-```
-install.packages("h2o")
-install.packages("data.table")
-```
+  ```
+  install.packages("h2o")
+  install.packages("data.table")
+  ```
 
 3. Edit the R library path in Line 2 of predict.R to point to the package installation directory for your system.
 
