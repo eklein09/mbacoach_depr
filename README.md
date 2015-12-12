@@ -1,8 +1,8 @@
 # mbacoach
 
-In order to run the Estimated Probabilities feature, perform the following steps:
+In order to run the Estimated Probabilities feature, perform the following steps (Note: you can ignore these steps and still run the rest of the app):
 
-1. Install R.
+1. Install [R](https://www.r-project.org/).
 
   ```
   sudo apt-get update
