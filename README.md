@@ -4,11 +4,11 @@ In order to run the Estimated Probabilities feature, perform the following steps
 1. Install R.
 
 ```
-    sudo apt-get update
-    sudo apt-get install r-base
-    ```
+sudo apt-get update
+sudo apt-get install r-base
+```
     
-2. Install necessary packages. Type ```R``` to start up the R console. Once the R console is open, install the following packages using the commands
+2. Install necessary packages. Type `R` to start up the R console. Once the R console is open, install the following packages using the commands
 
 ```
 install.packages("h2o")
