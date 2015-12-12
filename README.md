@@ -1,6 +1,7 @@
 # mbacoach
 
 In order to run the Estimated Probabilities feature, perform the following steps:
+
 1. Install R.
 
 ```
